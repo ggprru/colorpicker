@@ -52,6 +52,7 @@ document.addEventListener('click', event => {
         event.target.children[0].classList.toggle('fa-lock-open')
     } else if (event.target.tagName === 'H2'){
         copyToClickboard(event.target.textContent.toUpperCase())
+        popupShow(event.target.parentElement.querySelector('.popup'))
     }
 })
 
@@ -71,6 +72,11 @@ function setTextColor(text, color){
     text.style.color = luminance > 0.5 ? 'black' : 'white'
 }
 
-
+function popupShow(popup){
+    popup.classList.add('show')
+    setTimeout(()=>{
+        popup.classList.remove('show')
+    }, 1500)
+}
 
 update(true)
